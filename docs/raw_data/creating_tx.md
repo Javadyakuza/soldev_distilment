@@ -16,7 +16,7 @@ The instructions are containing:
 
 - The data related to the operations associated to the transaction in terms of a byte array.
 
-# Action
+# Transferring SOL
 
 In the provided code sample we will try to send some `SOL` from our account to another account.
 
@@ -30,3 +30,4 @@ The below code sample demonstrates how to transfer SOL tokens from one to anothe
 
 
 
+# Interacting to the custom on-chain programs
