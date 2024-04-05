@@ -47,3 +47,45 @@ console.log(`The balance of the account at ${address} is ${balanceInSol} SOL`);
 console.log(`✅ Finished!`)
 
 ```
+# Transferring SOL
+
+``` typescript
+
+import { airdropIfRequired } from "@solana-developers/helpers";
+import { LAMPORTS_PER_SOL, Connection, SystemProgram, Transaction, clusterApiUrl, sendAndConfirmTransaction, PublicKey, Keypair } from "@solana/web3.js";
+
+const connection = new Connection(clusterApiUrl("devnet"));
+
+const transaction = new Transaction()
+
+const amount = 1;
+
+const sender = Keypair.generate();
+const recipient = Keypair.generate();
+
+// air drop the newly created sender account to cover the fees and transfer from its sol to the recipient account.
+await airdropIfRequired(
+    connection,
+    sender.publicKey,
+    2 * LAMPORTS_PER_SOL,
+    0.5 * LAMPORTS_PER_SOL,
+);
+
+// creating the transaction
+const sendSolInstruction = SystemProgram.transfer({
+  fromPubkey: sender.publicKey,
+  toPubkey: recipient.publicKey,
+  lamports: LAMPORTS_PER_SOL * amount
+})
+
+// adding the new tx data to the tx object, we can add more than one tx to the obj as well.
+transaction.add(sendSolInstruction)
+
+// sending and confirming the transaction
+const signature = sendAndConfirmTransaction(
+  connection,
+  transaction,
+  [sender]
+)
+
+```
