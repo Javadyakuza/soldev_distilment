@@ -53,3 +53,28 @@ the associated token accounts are deterministic and help users to keep the token
 most of the time wat we need is an associated token account for example if wanna have a share of a already existing token we do not need to deploy the mint and the main token account, we just need a associated token account.
 
 the associated token account prevents the confusion about the token account address custody.
+
+> to mint the tokens, only th authority of the mint specified in the mint account is allowed, check out the rust code below to see how the ownership is checked
+
+``` rust
+    // @param the accounts is the key array passed from the off-chain program.
+    // @dev the is_signer param specifies the associated account has the relevant secret key signature in the tx.
+  for account in accounts.iter() {
+        if account.is_signer && account.key == signer_pubkey { // Replace with your logic to identify required signer
+            found_signer = true;
+            break;
+        }
+    }
+```
+
+## 4. Transferring the tokens
+
+The transferring operation is pretty straight forward and is done through a simple api but the only thing to note here is that the source and the destination to transfer from and to are the token accounts and not the wallets public keys.
+
+## 5. approve delegate
+
+the owner of the token account can delegate the allowance of the transfer and the burn operations of the certain amount of the token to another person through this functionality.
+
+notice that the certain amount that is previously approved as the delegate can later be revoked and any remaining amount of token wont be accessible since then.
+
+another thing to notice is that there can only be one delegate approved account at any given time per each token account.
