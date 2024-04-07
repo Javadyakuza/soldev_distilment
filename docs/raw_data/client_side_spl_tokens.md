@@ -36,3 +36,20 @@ Any type of account on the solana must pay for the hardware the its information 
 - Deposit a certain amount of SOL at account creation time to be considered as the rent exemption account.
 
 The  mint account are not separate from this rule and we have to deposit a certain amount of sol to the mint account in order to have an activated and rent exemption (mint) account.
+
+> this certain amount of sol is retrievable by using the `getMinimumBalanceForRentExemptMint` method of the jrpc connection object.  
+
+## 2. Creating Token Accounts
+
+now that we have created the mint account we will be needin to mint tokens, but before minting token we nedd an token account to hold the minted tokens information.
+
+
+## 3. Creating the Associated token accounts for transferring tokens between the users
+
+An associated token in context of the spl tokens is an derived token account address using the owner of the token account and the token account program ids.
+
+the associated token accounts are deterministic and help users to keep the tokens account pretty simple.
+
+most of the time wat we need is an associated token account for example if wanna have a share of a already existing token we do not need to deploy the mint and the main token account, we just need a associated token account.
+
+the associated token account prevents the confusion about the token account address custody.
