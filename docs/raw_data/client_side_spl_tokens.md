@@ -81,3 +81,21 @@ another thing to notice is that there can only be one delegate approved account 
 
 
 > [SPL token full operations Code Sample](./code_samples/ts_code_samples.md#spl-token-full-operations) 
+
+
+# Non-Fungible Tokens
+
+The non-fungible tokens on the solana, also known as spl tokens(yes, both fungible and non-fungible tokens on solana are called spl tokens) offer their main functionality with a different approach, in a way that they store the information of the assets associated with their ownership using an external tool and standard called metaplex. 
+
+## Metaplex
+
+`Metaplex offers a collection of tools that will help us to create, distribute and interact with the Nfts on the solana blockchain.`
+
+the metaplex will also help us with the fungible tokens metadata storage and representation.
+
+The meta plex also offers a specific program, called `Token Metadata` which standardize the process of attaching the metadata to the nft.
+The `Sugar CLI` simplifies the process of the uploading the medai/metadata files and creating a candy machine.
+
+The `Candy Machine` helps the developers to deploy and interact with the NFTs through a user friendly api.
+
+The `Metaplex SDK` is a tool that offers user-friendly APIs to assist developers in utilizing the onchain tools provided by Metaplex.

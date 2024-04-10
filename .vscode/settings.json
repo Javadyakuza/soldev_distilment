@@ -3,6 +3,7 @@
         "Chacha",
         "keypair",
         "lamports",
+        "metaplex",
         "solana"
     ]
 }
