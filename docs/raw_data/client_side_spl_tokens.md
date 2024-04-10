@@ -85,7 +85,19 @@ another thing to notice is that there can only be one delegate approved account 
 
 # Non-Fungible Tokens
 
-The non-fungible tokens on the solana, also known as spl tokens(yes, both fungible and non-fungible tokens on solana are called spl tokens) offer their main functionality with a different approach, in a way that they store the information of the assets associated with their ownership using an external tool and standard called metaplex. 
+The non-fungible tokens on the solana, also known as spl tokens(yes, both fungible and non-fungible tokens on solana are called spl tokens) offer their main functionality with a different approach, in a way that they store the information of the assets associated with their ownership using an external tool and standard which is using the metaplex standard. 
+
+The non-fungible tokens are non-divisible in contrary of the fungible tokens.
+
+each nft token can have maximum supply of one.
+
+The nfts are not having any decimals.
+
+The Nfts mint authority are set to null to grant that its total supply never changes.
+
+Each Nft has an separate metadata account which stores the metadata information.
+
+
 
 ## Metaplex
 
@@ -99,3 +111,32 @@ The `Sugar CLI` simplifies the process of the uploading the medai/metadata files
 The `Candy Machine` helps the developers to deploy and interact with the NFTs through a user friendly api.
 
 The `Metaplex SDK` is a tool that offers user-friendly APIs to assist developers in utilizing the onchain tools provided by Metaplex.
+
+
+## Metadata
+
+The metadata is simply an json object that will indicate the information of the associated asset with the specific nft, it can be a link to the related IPFS link of an digital art. it can be a signature of the ownership of a any type of digital or physical asset.
+
+The metadata can include both on and off chain components.
+
+
+## Metaplex instances
+
+The metaplex instances acts as a entry point between the user and SDKs apis, the SDK accepts a connection to send requests to the cluster.
+
+The developer can customize the interactions with specifying as an `Identifying Driver` or a `Storage Deriver`.
+
+The Identifying Deriver is essentially an keypair for singing the transaction associated with the nft, like transferring it.'
+
+The Storage Deriver is specifying the storage services that you want to use for uploading the assets.
+
+> The `bundlrStorage` driver is the default option and it uploads assets to Arweave, a permanent and decentralized storage service.
+
+
+Check out the code samples below which represent the manual process of preparing and deploying a collection of nft:
+
+> [Manual NFT Creation And Interaction data Code Sample](./code_samples/ts_code_samples.md#serializing-the-custom-data) 
+
+Check out the code sample below to see how the candy machine sugar cli comes to play when we are talking about scale !: 
+
+> [Utilizing the Candy machine and Sugar CLI data Code Sample](./code_samples/ts_code_samples.md#serializing-the-custom-data) 
