@@ -78,3 +78,6 @@ the owner of the token account can delegate the allowance of the transfer and th
 notice that the certain amount that is previously approved as the delegate can later be revoked and any remaining amount of token wont be accessible since then.
 
 another thing to notice is that there can only be one delegate approved account at any given time per each token account.
+
+
+> [SPL token full operations Code Sample](./code_samples/ts_code_samples.md#spl-token-full-operations) 
